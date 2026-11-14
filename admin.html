@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FixNow Care — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+    <aside class="admin-sidebar"><a class="brand admin-brand" href="index.html"><span class="brand-mark">+</span><span>FixNow <em>Care</em></span></a><div class="admin-side-label">Workspace</div><div class="admin-side-link active"><span>▦</span> Requests</div><a class="admin-side-link" href="index.html"><span>↗</span> View website</a><div class="admin-sidebar-bottom"><span class="admin-status-dot"></span><span>Connected to Supabase</span></div></aside>
+    <main class="admin-main">
+      <header class="admin-header"><div><div class="admin-kicker">FixNow Care / Admin</div><h1>Requests</h1></div><div class="admin-user"><span id="admin-email">Admin</span><button id="logout-button" class="logout-button">Log out</button></div></header>
+      <section class="admin-stats"><div class="admin-stat"><span>Total requests</span><strong id="total-count">—</strong><small>All received requests</small></div><div class="admin-stat"><span>New</span><strong id="new-count">—</strong><small>Need your attention</small></div><div class="admin-stat"><span>In progress</span><strong id="progress-count">—</strong><small>Currently being handled</small></div><div class="admin-stat"><span>Completed</span><strong id="completed-count">—</strong><small>Finished jobs</small></div></section>
+      <section class="admin-panel"><div class="admin-panel-head"><div><h2>All requests</h2><p>Review and update incoming customer requests.</p></div><div class="admin-controls"><label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search requests..." /></label><select id="status-filter"><option value="all">All statuses</option><option>New</option><option>Reviewing</option><option>Finding provider</option><option>Offer sent</option><option>Accepted</option><option>In progress</option><option>Completed</option><option>Cancelled</option><option>Rejected</option></select></div></div><div class="table-wrap"><table class="requests-table"><thead><tr><th>Request</th><th>Customer</th><th>Category</th><th>Preferred time</th><th>Status</th><th>Received</th><th></th></tr></thead><tbody id="requests-body"><tr><td colspan="7" class="table-message">Loading requests...</td></tr></tbody></table></div></section>
+    </main>
+  </div>
+  <div class="admin-login" id="admin-login"><form class="login-card" id="login-form"><a class="brand login-brand" href="index.html"><span class="brand-mark">+</span><span>FixNow <em>Care</em></span></a><div class="admin-kicker">Secure workspace</div><h1>Welcome back.</h1><p>Sign in to manage customer requests.</p><label>Email<input name="email" type="email" autocomplete="email" required placeholder="you@example.com" /></label><label>Password<input name="password" type="password" autocomplete="current-password" required placeholder="Your password" /></label><button class="button button-dark" type="submit">Sign in <span>↗</span></button><div class="login-error" id="login-error"></div><a class="login-back" href="index.html">← Back to website</a></form></div>
+  <div class="request-drawer" id="request-drawer"><div class="drawer-card"><button class="drawer-close" id="drawer-close">×</button><div class="admin-kicker">Request details</div><h2 id="drawer-title">—</h2><div class="drawer-meta" id="drawer-meta"></div><div class="drawer-detail-grid" id="drawer-details"></div><label class="drawer-status-label">Update status<select id="drawer-status"><option>New</option><option>Reviewing</option><option>Finding provider</option><option>Offer sent</option><option>Accepted</option><option>In progress</option><option>Completed</option><option>Cancelled</option><option>Rejected</option></select></label><button class="button button-dark" id="save-status">Save status <span>↗</span></button><div class="drawer-error" id="drawer-error"></div></div></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
